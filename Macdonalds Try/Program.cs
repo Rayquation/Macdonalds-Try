@@ -12,30 +12,38 @@ namespace MacDonalds_Project
 
         static void Main(string[] args)
         {
-            int[] choice = new int[3];
-            string con = "y";
-            int customer = 1;
-            do
+            try
             {
-                Console.WriteLine("Velkommen Til Macdonalds");
-                choice[0] = FoodMenu();
-                choice[1] = DiverseMenu();
-                choice[2] = DrikMenu();
-                Console.WriteLine($"Du skal i alt betale {choice.Sum():c}");
-                Console.WriteLine($"efter du har betalt har du {1000 - choice.Sum():c} tilbage");
-                Console.WriteLine($"Du er nr.{customer} i køen");
-                WaitTime(customer);
-                Console.WriteLine("Vil du gerne fortsætte {y/n}");
-                if (con != "n")
+                int[] choice = new int[3];
+                string con = "y";
+                int customer = 1;
+                do
                 {
-                    customer++;
+                    Console.WriteLine("Velkommen Til Macdonalds");
+                    choice[0] = FoodMenu();
+                    choice[1] = DiverseMenu();
+                    choice[2] = DrikMenu();
+                    Console.WriteLine($"Du skal i alt betale {choice.Sum():c}");
+                    Console.WriteLine($"efter du har betalt har du {1000 - choice.Sum():c} tilbage");
+                    Console.WriteLine($"Du er nr.{customer} i køen");
+                    WaitTime(customer);
+                    Console.WriteLine("Vil du gerne fortsætte {y/n}");
+                    if (con != "n")
+                    {
+                        customer++;
+                    }
+                    con = Console.ReadLine();
+                    con = con.ToLower();
                 }
-                con = Console.ReadLine();
-                con = con.ToLower();
+                while (con != "n");
+                Console.WriteLine("Tryk på hvilken som helst knap når du har fået din bestilling");
+                Console.ReadKey();
             }
-            while (con != "n");
-            Console.WriteLine("Tryk på hvilken som helst knap når du har fået din bestilling");
-            Console.ReadKey();
+            catch
+            {
+                Main(args);
+            }
+
         }
         static int FoodMenu()
         {
