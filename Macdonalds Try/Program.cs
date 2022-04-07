@@ -21,8 +21,8 @@ namespace MacDonalds_Project
                 choice[0] = FoodMenu();
                 choice[1] = DiverseMenu();
                 choice[2] = DrikMenu();
-                Console.WriteLine($"Du skal i alt betale {choice.Sum()}.kr");
-                Console.WriteLine($"efter du har betalt har du {1000 - choice.Sum()}.kr tilbage");
+                Console.WriteLine($"Du skal i alt betale {choice.Sum():c}");
+                Console.WriteLine($"efter du har betalt har du {1000 - choice.Sum():c} tilbage");
                 Console.WriteLine($"Du er nr.{customer} i køen");
                 WaitTime(customer);
                 Console.WriteLine("Vil du gerne fortsætte {y/n}");
@@ -46,14 +46,14 @@ namespace MacDonalds_Project
             int tmp = 0;
             foreach (string item in madMenu)
             {
-                Console.WriteLine($"{i}. {item} {MadMenu[tmp]}.kr");
+                Console.WriteLine($"{i}. {item} {MadMenu[tmp]:c}");
                 tmp++;
                 i++;
             }
             int choice = Convert.ToInt32(Console.ReadLine());
             int ran = choice - 1;
             int price = MadMenu[ran];
-            Console.WriteLine($"Du har valgt {madMenu[ran]} som koster {MadMenu[ran]}.kr");
+            Console.WriteLine($"Du har valgt {madMenu[ran]} som koster {MadMenu[ran]:c}");
             return price;
         }
         static int DiverseMenu()
@@ -65,14 +65,14 @@ namespace MacDonalds_Project
             int tmp = 0;
             foreach (string item in divMenu)
             {
-                Console.WriteLine($"{i}. {item} {DivMenu[tmp]}.kr");
+                Console.WriteLine($"{i}. {item} {DivMenu[tmp]:c}");
                 tmp++;
                 i++;
             }
             int choice = Convert.ToInt32(Console.ReadLine());
             int ran = choice - 1;
             int price = DivMenu[ran];
-            Console.WriteLine($"Du har valgt {divMenu[ran]} som koster {DivMenu[ran]}.kr");
+            Console.WriteLine($"Du har valgt {divMenu[ran]} som koster {DivMenu[ran]:c}");
             return price;
         }
         static int DrikMenu()
@@ -84,14 +84,14 @@ namespace MacDonalds_Project
             int tmp = 0;
             foreach (string item in drikMenu)
             {
-                Console.WriteLine($"{i}. {item} {DrikMenu[tmp]}.kr");
+                Console.WriteLine($"{i}. {item} {DrikMenu[tmp]:c}");
                 tmp++;
                 i++;
             }
             int choice = Convert.ToInt32(Console.ReadLine());
             int ran = choice - 1;
             int price = DrikMenu[ran];
-            Console.WriteLine($"Du har valgt {DrikMenu[ran]} som koster {drikMenu[ran]}.kr");
+            Console.WriteLine($"Du har valgt {DrikMenu[ran]} som koster {drikMenu[ran]:c}");
             return price;
         }
         public static void WaitTime(int customer)
