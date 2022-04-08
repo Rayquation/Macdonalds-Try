@@ -15,12 +15,19 @@ namespace MacDonalds_Project
         public static int change = 0;
         static void Main(string[] args)
         {
-            do
+            try
             {
-                con =Menu();
-            }while (con == "y");
-            Console.WriteLine("Tryk på hvilken som helst knap når du har fået din bestilling");
-            Console.ReadKey();
+                do
+                {
+                    con = Menu();
+                } while (con == "y");
+                Console.WriteLine("Tryk på hvilken som helst knap når du har fået din bestilling");
+                Console.ReadKey();
+            }
+            catch
+            {
+                Main(args);
+            }
         }
         static int FoodMenu()
         {
